@@ -25,35 +25,6 @@ export default function App() {
   const [step, setStep] = useState("form");
   const [form, setForm] = useState(EMPTY_FORM);
   const [result, setResult] = useState<any>(null);
-  const [loadingMsg, setLoadingMsg] = useState
-cat > app/page.tsx << 'EOF'
-"use client";
-import { useState, useEffect } from "react";
-
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_KEY!;
-
-const CONDITIONS = ["Mint / Oanvänd", "Utmärkt", "Mycket bra", "Bra", "Godkänt", "Slitet"];
-const COMPONENT_CONDITIONS = ["Utmärkt", "Mycket bra", "Bra", "Repor/Märken", "Slitet"];
-const SERVICE_OPTIONS = ["Okänd servicehistorik", "Aldrig servad", "Servad – 0–2 år sedan", "Servad – 3–5 år sedan", "Servad – 6+ år sedan"];
-const BRANDS = ["Rolex", "Patek Philippe", "Audemars Piguet", "Omega", "Cartier", "IWC", "Breitling", "TAG Heuer", "Vacheron Constantin", "Jaeger-LeCoultre", "Other"];
-const VALUATION_SITES = ["chrono24", "bobswatches", "storiesoftime", "chrono.dk", "luxurywatches.se"];
-const STATUS_COLORS: Record<string, string> = { inkommen: "#fbbf24", värderad: "#60a5fa", skickad: "#4ade80" };
-const EMPTY_FORM = {
-  brand: "", model: "", reference: "", year: "", condition: "", dialColor: "",
-  caseCondition: "", crystalCondition: "", braceletCondition: "",
-  service: "", hasBox: false, hasPapers: false, clientName: "", clientEmail: "", notes: ""
-};
-
-export default function App() {
-  const [view, setView] = useState("inbox");
-  const [cases, setCases] = useState<any[]>([]);
-  const [loadingCases, setLoadingCases] = useState(true);
-  const [fetchError, setFetchError] = useState("");
-  const [selected, setSelected] = useState<any>(null);
-  const [step, setStep] = useState("form");
-  const [form, setForm] = useState(EMPTY_FORM);
-  const [result, setResult] = useState<any>(null);
   const [loadingMsg, setLoadingMsg] = useState("");
   const [copied, setCopied] = useState(false);
 
